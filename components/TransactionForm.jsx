@@ -8,7 +8,7 @@ import { Input, Button, Select, Option } from '@material-tailwind/react';
 export default function TransactionForm() {
     const [formData, setFormData] = useState({ amount: '', type: 'income', category: '', account: '' });
     const [transactions, setTransactions] = useState([]);
-    const [accounts, setAccounts] = useState(['Bank Account', 'Mobile Money', 'Cash']); // Example static list of accounts
+    const [accounts, setAccounts] = useState(['Bank Account', 'Mobile Money', 'Cash']);
 
     useEffect(() => {
         const unsubscribe = onSnapshot(collection(db, 'transactions'), (snapshot) => {
@@ -29,7 +29,7 @@ export default function TransactionForm() {
                 amount: parseFloat(formData.amount),
                 type: formData.type,
                 category: formData.category,
-                account: formData.account,  // Adding account info to transaction
+                account: formData.account,
                 date: new Date(),
             });
 
@@ -38,6 +38,8 @@ export default function TransactionForm() {
             console.error('Error adding transaction:', error);
         }
     };
+
+    console.log(setAccounts)
 
     return (
         <div className=''>
@@ -103,7 +105,7 @@ export default function TransactionForm() {
                             <div className='flex justify-between items-end'>
                                 <p>{transaction.category}</p>
                                 <p className='text-xs'>Date: {new Date(transaction.date.seconds * 1000).toLocaleDateString()}</p>
-                                <p className='text-xs'>{transaction.account}</p> {/* Display selected account */}
+                                <p className='text-xs'>{transaction.account}</p>
                             </div>
                         </div>
                     </li>

@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from 'react';
 import { getTransactionsByDateRange } from '../services/transactions';
-import { doc, getDoc, setDoc, updateDoc, collection, onSnapshot } from "firebase/firestore";
+import { doc, getDoc, setDoc, collection, onSnapshot } from "firebase/firestore";
 import { db } from '../services/firestore';
 import { Input } from "@material-tailwind/react";
 
@@ -22,6 +22,8 @@ export default function TransactionList() {
     setTotalExpense(expense);
     checkBudget(expense, income);
   };
+
+  console.log(transactions, budgetExceeded)
 
   const checkBudget = (expense, income) => {
     const remainingBudget = budget - (expense - income);
