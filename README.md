@@ -1,8 +1,6 @@
 # My Wallet - Personal Budget Tracker
 Welcome to My Wallet, a simple yet powerful personal budget tracker that helps you manage your income and expenses. This application allows you to set and track your budget, calculate the total income and expenses, and check if you've exceeded your budget. With real-time updates and a clean interface, you'll always be in control of your finances.
 
-# ![LIVE]()
-
 ![Screenshot 2025-01-12 032534](https://github.com/user-attachments/assets/7841b71c-3fad-4d48-ae92-9e0d0d214f5d)
 
 ## Features
