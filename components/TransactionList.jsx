@@ -73,7 +73,7 @@ export default function TransactionList() {
   const remainingBudget = budget - totalExpense + totalIncome;
 
   return (
-    <div className='sticky top-10'>
+    <div className='lg:sticky top-10'>
       <h1 className='text-4xl mb-10'>My Wallet</h1>
       <div className='bg-[#111349] rounded-xl shadow-xl p-6 mb-10'>
         <h2 className='font-extrabold mb-4'>Transactions</h2>

@@ -52,8 +52,8 @@ export default function TransactionForm() {
     return (
         <div>
             <form onSubmit={handleSubmit} className="space-y-4 sticky top-0 bg-[#111349] p-4 shadow-xl rounded-xl">
-                <div className='flex justify-between gap-4'>
-                    <div className='w-1/2'>
+                <div className='lg:flex justify-between gap-4'>
+                    <div className='lg:w-1/2 mb-4 lg:mb-0'>
                         <Input
                             type="number"
                             required
@@ -62,7 +62,7 @@ export default function TransactionForm() {
                             onChange={(e) => setFormData({ ...formData, amount: e.target.value })}
                         />
                     </div>
-                    <div className='w-1/2'>
+                    <div className='lg:w-1/2'>
                         <Select
                             label="Transaction Type"
                             required
@@ -74,8 +74,8 @@ export default function TransactionForm() {
                         </Select>
                     </div>
                 </div>
-                <div className='flex gap-4'>
-                    <div className='w-1/2'>
+                <div className='lg:flex gap-4'>
+                    <div className='lg:w-1/2 mb-4 lg:mb-0'>
                         <Input
                             type="text"
                             required
@@ -84,7 +84,7 @@ export default function TransactionForm() {
                             onChange={(e) => setFormData({ ...formData, category: e.target.value })}
                         />
                     </div>
-                    <div className='w-1/2'>
+                    <div className='lg:w-1/2'>
                         <Select
                             label="Account"
                             required
