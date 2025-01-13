@@ -1,8 +1,8 @@
-'use client'
+"use client"
 
 import { useState, useEffect } from 'react';
 import { db } from '../services/firestore';
-import { addDoc, collection, onSnapshot } from 'firebase/firestore';
+import { addDoc, collection, onSnapshot, doc, deleteDoc } from 'firebase/firestore';
 import { Input, Button, Select, Option } from '@material-tailwind/react';
 
 export default function TransactionForm() {
@@ -22,6 +22,8 @@ export default function TransactionForm() {
         return unsubscribe;
     }, []);
 
+    console.log(setAccounts);
+
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
@@ -39,10 +41,16 @@ export default function TransactionForm() {
         }
     };
 
-    console.log(setAccounts)
+    const handleDelete = async (id) => {
+        try {
+            await deleteDoc(doc(db, 'transactions', id));
+        } catch (error) {
+            console.error('Error deleting transaction:', error);
+        }
+    };
 
     return (
-        <div className=''>
+        <div>
             <form onSubmit={handleSubmit} className="space-y-4 sticky top-0 bg-[#111349] p-4 shadow-xl rounded-xl">
                 <div className='flex justify-between gap-4'>
                     <div className='w-1/2'>
@@ -98,9 +106,10 @@ export default function TransactionForm() {
                 {transactions.map((transaction) => (
                     <li key={transaction.id} className="p-1 border border-[#525252c9] rounded-xl">
                         <div className='bg2 rounded-lg p-2'>
-                            <div className='flex justify-between items-end'>
+                            <div className='flex justify-between items-center'>
                                 <p className={transaction.type === "income" ? "text-[#18e118]" : "text-red-600"}>{transaction.type}</p>
                                 <p className='font-extrabold text-md'>RWF {transaction.amount}</p>
+                                <button onClick={() => handleDelete(transaction.id)} className="text-red-500 text-sm ml-2">Delete</button>
                             </div>
                             <div className='flex justify-between items-end'>
                                 <p>{transaction.category}</p>
