@@ -103,7 +103,7 @@ export default function TransactionList() {
         </div>
       </div>
 
-      {remainingBudget <= 0 && <div className='bg-red-600 p-6 text-white shadow-xl rounded-xl'>Budget Exceeded!</div>}
+      {remainingBudget <= 0 && <div className='bg-red-600 p-6 mb-10 text-white shadow-xl rounded-xl'>Budget Exceeded!</div>}
 
     </div>
   );
